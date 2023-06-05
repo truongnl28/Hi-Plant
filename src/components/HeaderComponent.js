@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -57,10 +57,9 @@ const Header = () => {
                   </Form>
                </Col>
                <Col sm={2} className="text-left">
-                  <div className="d-flex flex-column align-items-start">
+                  <div className="d-flex flex-column align-items-center">
                      <i className="fa fa-user fa-lg" style={{ fontSize: '40px' }} />
-                     <a href="#" className="mb-2">Login</a>
-                     <a href="#">Register</a>
+                     <Link to="/login" className='text-black'>Đăng nhập</Link>
                   </div>
                </Col>
             </Row>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import styles from "./LoginPage.module.css";
 import { Link } from "react-router-dom";
+import Footer from "./FooterComponent";
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -61,6 +62,8 @@ function LoginPage() {
                     </Col>
                 </Row>
             </Container>
+
+            <Footer/>
         </>
     )
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, ButtonGroup, Col, Container, Form, Image, Nav, Row, Tab, TabContainer } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./RegisterPage.module.css";
+import Footer from "./FooterComponent";
 
 function RegisterPage() {
     const [traderName, setTraderName] = useState('');
@@ -129,6 +130,8 @@ function RegisterPage() {
                     </Row>
                 </TabContainer>
             </Container>
+
+            <Footer/>
         </>
     )
 }
