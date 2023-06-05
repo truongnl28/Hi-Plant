@@ -7,12 +7,12 @@ function Footer() {
                 <div className='row justify-content-center'>
                     <div className='col-sm-2'>
                         <h5>Địa chỉ</h5>
-                        EXE 201 Hi-Plant<br/>
+                        EXE 201 Hi-Plant<br />
                         FPT University HCM
                     </div>
                     <div className='offset-1 col-sm-2'>
                         <h5>Liên Lạc</h5>
-                        <i className="fa fa-phone fa-lg"/> : +012 345 6789
+                        <i className="fa fa-phone fa-lg" /> : +012 345 6789
                     </div>
                     <div className='offset-1 col-sm-5'>
                         <h5>Thông tin</h5>

@@ -42,7 +42,7 @@ const Header = () => {
                </Col>
                <Col sm={6} md={8}>
                   <Form inline className="d-flex justify-content-center align-items-center">
-                     <FormGroup className="mr-2" style={{width: '120px'}}>
+                     <FormGroup className="mr-2" style={{ width: '120px' }}>
                         <Input type="select" className="form-control">
                            <option>All</option>
                            <option>Ớt</option>
@@ -54,7 +54,7 @@ const Header = () => {
                      <div className="input-group">
                         <Input type="text" placeholder="Nhập tên sản phẩm" className="form-control mr-2" />
                         <div className="input-group-append">
-                           <Button color="success" type="submit" style={{width: '100px'}}>
+                           <Button color="success" type="submit" style={{ width: '100px' }}>
                               <span className="fa fa-search"></span>
                            </Button>
                         </div>
@@ -71,24 +71,24 @@ const Header = () => {
          <Navbar dark expand="md">
             <NavbarToggler onClick={toggleNav} />
             <Collapse isOpen={isNavOpen} navbar className="d-flex justify-content-center align-items-center">
-               <Nav navbar>
+               <Nav navbar >
                   <NavItem>
-                     <NavLink className="nav-link" to="/home">
+                     <NavLink className="nav-link" to="/home" style={{color: '#fadc41'}}>
                         <span className="fa fa-home fa-lg"></span> TRANG CHỦ
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/about">
+                     <NavLink className="nav-link" to="/about" style={{color: '#fadc41'}}>
                         <span className="fa fa-info fa-lg"></span> THÔNG TIN
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/product">
+                     <NavLink className="nav-link" to="/product" style={{color: '#fadc41'}}>
                         <span className="fa fa-list fa-lg"></span> SẢN PHẨM
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/news">
+                     <NavLink className="nav-link" to="/news" style={{color: '#fadc41'}}>
                         <span className="fa fa-address-card fa-lg"></span> TIN TỨC
                      </NavLink>
                   </NavItem>

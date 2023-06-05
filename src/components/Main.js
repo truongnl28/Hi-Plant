@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Header from "./HeaderComponent";
-import Footer from "./FooterComponent";
-import ProductPage from "./ProductPageComponent";
+import Header from "./Header";
+import Footer from "./Footer";
+import ProductPage from "./ProductPage";
 
 
 class Main extends Component {

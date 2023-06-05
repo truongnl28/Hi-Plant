@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import styles from "./LoginPage.module.css";
 import { Link } from "react-router-dom";
-import Footer from "./FooterComponent";
+import Footer from "./Footer";
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Email: "+email+" Password: "+password);
+        alert("Email: " + email + " Password: " + password);
     }
 
     return (
@@ -45,7 +45,7 @@ function LoginPage() {
                                 </Form.Group>
                                 {/* PASSWORD */}
                                 <Form.Group className="mb-5" controlId="loginPassword">
-                                    <Form.Control className={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mật khẩu"/>
+                                    <Form.Control className={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mật khẩu" />
                                 </Form.Group>
 
                                 <div className="d-grid gap-2">
@@ -53,7 +53,7 @@ function LoginPage() {
                                         ĐĂNG NHẬP
                                     </Button>
                                     <p className="mt-3 text-end fw-bold">
-                                        Bạn chưa có tài khoản? <Link to="/register" className="text-danger">Đăng ký</Link> 
+                                        Bạn chưa có tài khoản? <Link to="/register" className="text-danger">Đăng ký</Link>
                                     </p>
                                 </div>
 
@@ -63,7 +63,7 @@ function LoginPage() {
                 </Row>
             </Container>
 
-            <Footer/>
+            <Footer />
         </>
     )
 }

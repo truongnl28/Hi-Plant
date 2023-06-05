@@ -6,7 +6,7 @@ import productsData from '../share/productData';
 const ProductCard = ({ image, name, price, quantity, address }) => {
     return (
         <Card style={{ borderRadius: '10px', background: '#D9D9D9', borderWidth: '2px', borderColor: '#000000', borderStyle: 'solid' }}>
-            <Link to={'/#'} style={{ textDecoration: 'none', color: '#000000' }}>
+            <Link to={`/product/${name}`} style={{ textDecoration: 'none', color: '#000000' }}>
                 <CardImg top src={image} alt="Product Image" />
                 <CardBody>
                     <CardTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>{name}</CardTitle>

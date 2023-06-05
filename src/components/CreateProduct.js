@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./CreateProduct.module.css"
-import Footer from "./FooterComponent";
+import Footer from "./Footer";
 
 function CreateProduct() {
     const [productName, setProductName] = useState("");

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import CreateProduct from "./components/CreateProduct";
-import Main from './components/MainComponent';
+import Main from './components/Main';
 import './App.css';
 
 
