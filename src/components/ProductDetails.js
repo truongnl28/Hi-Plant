@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Image, Row, Col, Button, Container, InputGroup, FormControl } from 'react-bootstrap';
+import { Image, Row, Col, Button, Container, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
