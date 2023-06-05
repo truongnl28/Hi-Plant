@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -36,65 +35,65 @@ const Header = () => {
 
    return (
       <React.Fragment>
-         <Container className='header-top'>
+         <Container fluid className='header-top'>
             <Row className="align-items-center">
                <Col sm={2}>
                   <img src="assets/images/logo.png" height="80" width="130" alt="Logo" />
                </Col>
-               <Col sm={8}>
-                  <Form inline className="d-flex justify-content-between align-items-center">
-                     <Form.Group controlId="category" className="mr-2">
-                        <Form.Control as="select">
+               <Col sm={6} md={8}>
+                  <Form inline className="d-flex justify-content-center align-items-center">
+                     <FormGroup className="mr-2" style={{width: '120px'}}>
+                        <Input type="select" className="form-control">
                            <option>All</option>
                            <option>Ớt</option>
                            <option>Rau</option>
                            <option>Trái cây</option>
                            <option>Củ</option>
-                        </Form.Control>
-                     </Form.Group>
-                     <Form.Control type="text" placeholder="Nhập tên sản phẩm" className="mr-2" />
-                     <Button variant="success" type="submit">Search</Button>
+                        </Input>
+                     </FormGroup>
+                     <div className="input-group">
+                        <Input type="text" placeholder="Nhập tên sản phẩm" className="form-control mr-2" />
+                        <div className="input-group-append">
+                           <Button color="success" type="submit" style={{width: '100px'}}>
+                              <span className="fa fa-search"></span>
+                           </Button>
+                        </div>
+                     </div>
                   </Form>
                </Col>
-               <Col sm={2} className="text-left">
-                  <div className="d-flex flex-column align-items-start">
-                     <i className="fa fa-user fa-lg" style={{ fontSize: '40px' }} />
-                     <a href="#" className="mb-2">Login</a>
-                     <a href="#">Register</a>
-                  </div>
+               <Col sm={4} md={2} className="d-flex align-items-center justify-content-center">
+                  <NavLink className="nav-link" to="/login">
+                     <span className="fa fa-user fa-lg"></span> Đăng nhập
+                  </NavLink>
                </Col>
             </Row>
          </Container>
-         <Navbar dark expand="md" >
-            <div className="container">
-               <div className='row'>
-                  <NavbarToggler onClick={toggleNav} />
-                  <Collapse isOpen={isNavOpen} navbar>
-                     <Nav navbar>
-                        <NavItem>
-                           <NavLink className="nav-link" to="/home">
-                              <span className="fa fa-home fa-lg"></span> TRANG CHỦ
-                           </NavLink>
-                        </NavItem>
-                        <NavItem>
-                           <NavLink className="nav-link" to="/about">
-                              <span className="fa fa-info fa-lg"></span> THÔNG TIN
-                           </NavLink>
-                        </NavItem>
-                        <NavItem>
-                           <NavLink className="nav-link" to="/product">
-                              <span className="fa fa-list fa-lg"></span> SẢN PHẨM
-                           </NavLink>
-                        </NavItem>
-                        <NavItem>
-                           <NavLink className="nav-link" to="/news">
-                              <span className="fa fa-address-card fa-lg"></span> TIN TỨC
-                           </NavLink>
-                        </NavItem>
-                     </Nav>
-                  </Collapse>
-               </div>
-            </div>
+         <Navbar dark expand="md">
+            <NavbarToggler onClick={toggleNav} />
+            <Collapse isOpen={isNavOpen} navbar className="d-flex justify-content-center align-items-center">
+               <Nav navbar>
+                  <NavItem>
+                     <NavLink className="nav-link" to="/home">
+                        <span className="fa fa-home fa-lg"></span> TRANG CHỦ
+                     </NavLink>
+                  </NavItem>
+                  <NavItem>
+                     <NavLink className="nav-link" to="/about">
+                        <span className="fa fa-info fa-lg"></span> THÔNG TIN
+                     </NavLink>
+                  </NavItem>
+                  <NavItem>
+                     <NavLink className="nav-link" to="/product">
+                        <span className="fa fa-list fa-lg"></span> SẢN PHẨM
+                     </NavLink>
+                  </NavItem>
+                  <NavItem>
+                     <NavLink className="nav-link" to="/news">
+                        <span className="fa fa-address-card fa-lg"></span> TIN TỨC
+                     </NavLink>
+                  </NavItem>
+               </Nav>
+            </Collapse>
          </Navbar>
          <div className="jumbotron">
             <Slider {...settings} ref={sliderRef}>
