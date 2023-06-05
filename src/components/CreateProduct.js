@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./CreateProduct.module.css"
+import Footer from "./FooterComponent";
 
 function CreateProduct() {
     const [productName, setProductName] = useState("");
@@ -9,8 +10,21 @@ function CreateProduct() {
     const [quantity, setQuantity] = useState(null);
     const [address, setAddress] = useState("");
 
+    const [imageFile, setImageFile] = useState();
+
+    const handleChange = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setImageFile(e.target.files[0]);
+        }
+    }
+
+    const removeImage = () => {
+        setImageFile();
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(imageFile);
     }
 
     return (
@@ -24,7 +38,7 @@ function CreateProduct() {
                     <Col className="d-flex justify-content-end">
                         <div className="text-center">
                             <i className="fa fa-user fa-2x" aria-hidden="true"></i>
-                            <p>Đăng nhập</p>
+                            <p className="m-0">Nông dân</p>
                         </div>
                     </Col>
                 </Row>
@@ -37,13 +51,21 @@ function CreateProduct() {
                 </div>
             </Container>
             <Container className="my-5">
-                <Row>
-                    <Col xs={"auto"}>
-                        <Image src={process.env.PUBLIC_URL + "/images/product1.png"} fluid rounded />
-                    </Col>
-                    <Col>
-                        <div className="h-100 p-5 text-center">
-                            <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
+                    <Row>
+
+                        <Col xs={"auto"}>
+                            <Form.Control type="file" onChange={handleChange} />
+                            {imageFile && (
+                                <div className="mt-2">
+                                    <Image src={URL.createObjectURL(imageFile)} fluid rounded />
+                                </div>
+                            )}
+
+                        </Col>
+                        <Col>
+                            <div className="h-100 p-5 text-center">
+
                                 {/* NAME */}
                                 <Form.Group className="mb-4" controlId="productName">
                                     <Form.Control className={styles.input} type="text" value={productName} onChange={(e) => setProductName(e.target.value)} placeholder="Tên sản phẩm" />
@@ -69,12 +91,13 @@ function CreateProduct() {
                                         </Button>
                                     </Link>
                                 </div>
-
-                            </Form>
-                        </div>
-                    </Col>
-                </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                </Form>
             </Container>
+
+            <Footer />
         </>
     )
 }
