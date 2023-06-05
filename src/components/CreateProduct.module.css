@@ -1,0 +1,19 @@
+.input{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: #D9D9D9 !important;
+}
+
+.confirmButton{
+    background-color: #3DB149 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    border: none !important;
+}
+
+.cancelButton{
+    background-color:  #FADC41 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    border: none !important;
+}
