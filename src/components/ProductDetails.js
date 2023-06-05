@@ -1,51 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import productsData from '../share/productData';
+import { Image, Row, Col, Button, Container, InputGroup, FormControl } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
 const ProductDetails = ({ products }) => {
-    const { productName } = useParams();
+  const { productName } = useParams();
+  const [quantityValue, setQuantityValue] = useState(0);
 
-    // Find the selected product from the products list
-    const selectedProduct = products.find(product => product.name === productName);
+  // Find the selected product from the products list
+  const selectedProduct = products.find(product => product.name === productName);
 
-    if (!selectedProduct) {
-        return <div>Product not found!</div>;
+  if (!selectedProduct) {
+    return <div>Product not found!</div>;
+  }
+
+  const { image, name, price, quantity, address } = selectedProduct;
+
+  const handleDecrease = () => {
+    if (quantityValue > 0) {
+      setQuantityValue(prevQuantity => prevQuantity - 1);
     }
+  };
 
-    const { image, name, price, quantity, address } = selectedProduct;
+  const handleIncrease = () => {
+    setQuantityValue(prevQuantity => prevQuantity + 1);
+  };
 
-    const handleOrder = () => {
-        // Handle order logic here
-        console.log('Order placed!');
-    };
+  const handleQuantityChange = e => {
+    const value = parseInt(e.target.value);
+    if (!isNaN(value)) {
+      setQuantityValue(value);
+    }
+  };
 
-    return (
-        <div>
-            <div style={{ display: 'flex', alignItems: 'center', minHeight: '80vh' }}>
-                <div style={{ marginRight: '20px' }}>
-                    <img src={image} alt="Product Image" />
-                </div>
-                <div>
-                    <h2>{name}</h2>
-                    <p>Price: {price}</p>
-                    <p>Quantity: {quantity}</p>
-                    <p>Address: {address}</p>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <label style={{ marginRight: '10px' }}>Quantity:</label>
-                        <select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            {/* Add more options if needed */}
-                        </select>
-                    </div>
-                    <button onClick={handleOrder}>ĐẶT HÀNG</button>
-                </div>
+  const handleOrder = () => {
+    // Handle order logic here
+    console.log('Order placed!');
+  };
+
+  return (
+    <div>
+      <Container className="my-3">
+        <Row className="align-items-center">
+          <Col>
+            <Link to="/"><Image src={process.env.PUBLIC_URL + "/images/MainLogo.png"} fluid /></Link>
+          </Col>
+          <Col className="d-flex justify-content-end">
+            <div className="text-center">
+              <i className="fa fa-user fa-2x" aria-hidden="true"></i>
+              <p className="m-0">Thương nhân</p>
             </div>
-            <Footer />
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="pt-3 pb-1 px-5 text-white" style={{ backgroundColor: '#3DB149' }} fluid>
+        <div className="text-uppercase fw-bold">
+          <h1 className="">THÔNG TIN SẢN PHẨM</h1>
         </div>
-    );
+      </Container>
+
+      <Row className="align-items-center" style={{ minHeight: '80vh' }}>
+        <Col md={6}>
+          <div style={{ width: '100%', paddingBottom: '100%', position: 'relative' }}>
+            <Image src={image} alt="Product Image" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, objectFit: 'cover', width: '100%', height: '100%' }} />
+          </div>
+        </Col>
+        <Col md={6}>
+          <h2>{name}</h2>
+          <p style={{ color: 'green', fontSize: '18px', fontWeight: 'bold' }}>Price: {price}</p>
+          <p>Quantity: {quantity}</p>
+          <p>Address: {address}</p>
+          <Row className="align-items-center">
+            <Col md={4} className="d-flex">
+              <Button variant="outline-secondary" onClick={handleDecrease}>-</Button>
+              <FormControl
+                value={quantityValue}
+                onChange={handleQuantityChange}
+                type="number"
+                min="0"
+              />
+              <Button variant="outline-secondary" onClick={handleIncrease}>+</Button>
+            </Col>
+            <Col md={4}>
+              <Button onClick={handleOrder}>ĐẶT HÀNG</Button>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Footer />
+    </div>
+  );
 };
 
 export default ProductDetails;
