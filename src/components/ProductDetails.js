@@ -1,55 +1,51 @@
-import React, { useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'reactstrap';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import productsData from '../share/productData';
+import Footer from "./Footer";
 
-const ProductDetailPage = () => {
-    const { name } = useParams();
-    const history = useHistory();
+const ProductDetails = ({ products }) => {
+    const { productName } = useParams();
 
-    // Tìm sản phẩm tương ứng dựa trên name trong productsData
-    const product = productsData.find((product) => product.name === name);
+    // Find the selected product from the products list
+    const selectedProduct = products.find(product => product.name === productName);
 
-    const [quantity, setQuantity] = useState(1);
-
-    const handleQuantityChange = (e) => {
-        setQuantity(parseInt(e.target.value));
-    };
-
-    const handleAddToCart = () => {
-        // Xử lý logic thêm sản phẩm vào giỏ hàng
-        console.log(`Add ${quantity} ${product.name} to cart`);
-
-        // Chuyển đến trang khác
-        history.push('/cart'); // Thay đổi đường dẫn '/cart' thành đường dẫn mong muốn
-    };
-
-    if (!product) {
-        return <div>Product not found</div>;
+    if (!selectedProduct) {
+        return <div>Product not found!</div>;
     }
 
+    const { image, name, price, quantity, address } = selectedProduct;
+
+    const handleOrder = () => {
+        // Handle order logic here
+        console.log('Order placed!');
+    };
+
     return (
-        <div className="product-detail">
-            <div className="product-image">
-                <Card>
-                    <CardImg top src={product.image} alt="Product Image" />
-                </Card>
-            </div>
-            <div className="product-info">
-                <h2>{product.name}</h2>
-                <p>Price: {product.price}</p>
-                <p>Quantity: {product.quantity}</p>
-                <p>Address: {product.address}</p>
-                <div className="order-section">
-                    <label htmlFor="quantity">Quantity:</label>
-                    <input type="number" id="quantity" value={quantity} onChange={handleQuantityChange} />
-                    <Button color="primary" onClick={handleAddToCart}>
-                        Add to Cart
-                    </Button>
+        <div>
+            <div style={{ display: 'flex', alignItems: 'center', minHeight: '80vh' }}>
+                <div style={{ marginRight: '20px' }}>
+                    <img src={image} alt="Product Image" />
+                </div>
+                <div>
+                    <h2>{name}</h2>
+                    <p>Price: {price}</p>
+                    <p>Quantity: {quantity}</p>
+                    <p>Address: {address}</p>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <label style={{ marginRight: '10px' }}>Quantity:</label>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            {/* Add more options if needed */}
+                        </select>
+                    </div>
+                    <button onClick={handleOrder}>ĐẶT HÀNG</button>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
 
-export default ProductDetailPage;
+export default ProductDetails;

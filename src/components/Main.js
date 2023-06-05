@@ -3,7 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ProductPage from "./ProductPage";
 
-
 class Main extends Component {
     render() {
         return (
