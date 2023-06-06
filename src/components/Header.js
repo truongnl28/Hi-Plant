@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, NavbarToggler, Collapse, NavItem, Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
+import { Image } from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -38,7 +39,7 @@ const Header = () => {
          <Container fluid className='header-top'>
             <Row className="align-items-center">
                <Col sm={2}>
-                  <img src="assets/images/logo.png" height="80" width="130" alt="Logo" />
+                  <Link to="/"><Image src={process.env.PUBLIC_URL + "/images/MainLogo.png"} fluid /></Link>
                </Col>
                <Col sm={6} md={8}>
                   <Form inline className="d-flex justify-content-center align-items-center">
@@ -73,22 +74,22 @@ const Header = () => {
             <Collapse isOpen={isNavOpen} navbar className="d-flex justify-content-center align-items-center">
                <Nav navbar >
                   <NavItem>
-                     <NavLink className="nav-link" to="/home" style={{color: '#fadc41'}}>
+                     <NavLink className="nav-link" to="/" style={{ color: '#fadc41' }}>
                         <span className="fa fa-home fa-lg"></span> TRANG CHỦ
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/about" style={{color: '#fadc41'}}>
+                     <NavLink className="nav-link" to="/about" style={{ color: '#fadc41' }}>
                         <span className="fa fa-info fa-lg"></span> THÔNG TIN
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/product" style={{color: '#fadc41'}}>
+                     <NavLink className="nav-link" to="/product" style={{ color: '#fadc41' }}>
                         <span className="fa fa-list fa-lg"></span> SẢN PHẨM
                      </NavLink>
                   </NavItem>
                   <NavItem>
-                     <NavLink className="nav-link" to="/news" style={{color: '#fadc41'}}>
+                     <NavLink className="nav-link" to="/news" style={{ color: '#fadc41' }}>
                         <span className="fa fa-address-card fa-lg"></span> TIN TỨC
                      </NavLink>
                   </NavItem>

@@ -49,7 +49,7 @@ const ProductDetails = ({ products }) => {
           <Col className="d-flex justify-content-end">
             <div className="text-center">
               <i className="fa fa-user fa-2x" aria-hidden="true"></i>
-              <p className="m-0">Thương nhân</p>
+              <p className="m-0">Người dùng</p>
             </div>
           </Col>
         </Row>

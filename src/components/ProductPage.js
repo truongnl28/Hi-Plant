@@ -40,6 +40,7 @@ const ProductPage = () => {
         <div style={{ marginTop: '15px' }}>
             <ProductList products={productsData} />
         </div>
+        
     );
 };
 
