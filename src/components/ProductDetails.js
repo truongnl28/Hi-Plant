@@ -61,34 +61,43 @@ const ProductDetails = ({ products }) => {
         </div>
       </Container>
 
-      <Row className="align-items-center" style={{ minHeight: '80vh' }}>
-        <Col md={6}>
-          <div style={{ width: '100%', paddingBottom: '100%', position: 'relative' }}>
-            <Image src={image} alt="Product Image" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, objectFit: 'cover', width: '100%', height: '100%' }} />
-          </div>
-        </Col>
-        <Col md={6}>
-          <h2>{name}</h2>
-          <p style={{ color: 'green', fontSize: '18px', fontWeight: 'bold' }}>Price: {price}</p>
-          <p>Quantity: {quantity}</p>
-          <p>Address: {address}</p>
-          <Row className="align-items-center">
-            <Col md={4} className="d-flex">
-              <Button variant="outline-secondary" onClick={handleDecrease}>-</Button>
-              <FormControl
-                value={quantityValue}
-                onChange={handleQuantityChange}
-                type="number"
-                min="0"
-              />
-              <Button variant="outline-secondary" onClick={handleIncrease}>+</Button>
-            </Col>
-            <Col md={4}>
-              <Button onClick={handleOrder}>ĐẶT HÀNG</Button>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <Container>
+        <Row className="align-items-center" style={{ minHeight: '80vh' }}>
+          <Col md={6}>
+            <Image
+              src={process.env.PUBLIC_URL + image}
+              alt="Product Image"
+              style={{
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          </Col>
+          <Col md={6}>
+            <h2>{name}</h2>
+            <p style={{ color: 'green', fontSize: '18px', fontWeight: 'bold' }}>Price: {price}</p>
+            <p>Quantity: {quantity}</p>
+            <p>Address: {address}</p>
+            <Row className="align-items-center">
+              <Col md={4} className="d-flex">
+                <Button variant="outline-secondary" onClick={handleDecrease}>-</Button>
+                <FormControl
+                  value={quantityValue}
+                  onChange={handleQuantityChange}
+                  type="number"
+                  min="0"
+                />
+                <Button variant="outline-secondary" onClick={handleIncrease}>+</Button>
+              </Col>
+              <Col md={4}>
+                <Button onClick={handleOrder}>ĐẶT HÀNG</Button>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+
       <Footer />
     </div>
   );

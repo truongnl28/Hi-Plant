@@ -36,7 +36,7 @@ const Header = () => {
 
    return (
       <React.Fragment>
-         <Container fluid className='header-top'>
+         <Container fluid className='header-top my-3'>
             <Row className="align-items-center">
                <Col sm={2}>
                   <Link to="/"><Image src={process.env.PUBLIC_URL + "/images/MainLogo.png"} fluid /></Link>
@@ -69,7 +69,8 @@ const Header = () => {
                </Col>
             </Row>
          </Container>
-         <Navbar dark expand="md">
+
+         <Navbar dark expand="md" style={{ backgroundColor: '#3db149', fontWeight: 'bold' }}>
             <NavbarToggler onClick={toggleNav} />
             <Collapse isOpen={isNavOpen} navbar className="d-flex justify-content-center align-items-center">
                <Nav navbar >
@@ -96,19 +97,21 @@ const Header = () => {
                </Nav>
             </Collapse>
          </Navbar>
+
          <div className="jumbotron">
             <Slider {...settings} ref={sliderRef}>
                <div>
-                  <img src="assets/images/img1.png" alt="Image 1" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh' }} />
+                  <img src="images/img1.png" alt="Image 1" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh', objectPosition: 'center' }} />
                </div>
                <div>
-                  <img src="assets/images/img2.jpg" alt="Image 2" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh' }} />
+                  <img src="images/img2.jpg" alt="Image 2" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh', objectPosition: 'center' }} />
                </div>
                <div>
-                  <img src="assets/images/img3.jpg" alt="Image 3" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh' }} />
+                  <img src="images/img3.jpg" alt="Image 3" className="img-fluid w-100" style={{ objectFit: 'cover', height: '100vh', objectPosition: 'center' }} />
                </div>
             </Slider>
          </div>
+
       </React.Fragment>
    );
 };

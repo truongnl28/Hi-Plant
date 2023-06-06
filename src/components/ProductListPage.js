@@ -9,7 +9,9 @@ const ProductCard = ({ image, name, price, quantity, address }) => {
     return (
         <Card style={{ borderRadius: '5px', borderWidth: '1px', borderColor: '#000000', borderStyle: 'solid' }}>
             <Link to={`/product/${name}`} style={{ textDecoration: 'none', color: '#000000' }}>
-                <CardImg top src={image} alt="Product Image" />
+                <div style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
+                    <CardImg top src={image} alt="Product Image" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                </div>
                 <CardBody>
                     <CardTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>{name}</CardTitle>
                     <CardText>Price: {price}</CardText>

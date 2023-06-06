@@ -1,20 +1,20 @@
 const productsData = [
     {
-        image: 'images/product1.png',
+        image: '/images/img1.png',
         name: 'Product 1',
         price: '$10',
         quantity: 5,
         address: '123 Street, City',
     },
     {
-        image: 'images/product1.png',
+        image: 'images/img2.jpg',
         name: 'Product 2',
         price: '$20',
         quantity: 3,
         address: '456 Street, City',
     },
     {
-        image: 'images/product1.png',
+        image: 'images/img3.jpg',
         name: 'Product 3',
         price: '$20',
         quantity: 3,
