@@ -3,7 +3,7 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import CreateProduct from "./components/CreateProduct";
 import Main from './components/Main';
-import ProductPage from "./components/ProductPage";
+import ProductListPage from "./components/ProductListPage";
 import ProductDetails from './components/ProductDetails';
 import productsData from "./share/productData";
 import './App.css';
@@ -18,7 +18,7 @@ function App() {
         <Route path="/farmer">
           <Route path="create" element={<CreateProduct />} />
         </Route>
-        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product" element={<ProductListPage />} />
         <Route path="/product/:productName" element={<ProductDetails products={productsData} />} />
       </Routes>
     </BrowserRouter>

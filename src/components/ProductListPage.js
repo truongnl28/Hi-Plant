@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText, Col, Row } from 'reactstrap';
+import { Container, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import productsData from '../share/productData';
+import Footer from './Footer';
 
 const ProductCard = ({ image, name, price, quantity, address }) => {
     return (
@@ -35,12 +37,33 @@ const ProductList = ({ products }) => {
     );
 };
 
-const ProductPage = () => {
+const ProductListPage = () => {
     return (
-        <div style={{ marginTop: '15px' }}>
-            <ProductList products={productsData} />
+        <div>
+            <Container className="my-3">
+                <Row className="align-items-center">
+                    <Col>
+                        <Link to="/"><Image src={process.env.PUBLIC_URL + "/images/MainLogo.png"} fluid /></Link>
+                    </Col>
+                    <Col className="d-flex justify-content-end">
+                        <a href="#" style={{ fontSize: '20px', textDecoration: 'none', color: 'green' }}>Bạn cần giúp đỡ?</a>
+                    </Col>
+                </Row>
+            </Container>
+
+            <Container className="pt-3 pb-1 px-5 text-white" style={{ backgroundColor: '#3DB149' }} fluid>
+                <div className="text-uppercase fw-bold">
+                    <h1 className="">THÔNG TIN SẢN PHẨM</h1>
+                </div>
+            </Container>
+
+            <div style={{ marginTop: '15px' }}>
+                <ProductList products={productsData} />
+            </div>
+
+            <Footer />
         </div>
     );
 };
 
-export default ProductPage;
+export default ProductListPage;
