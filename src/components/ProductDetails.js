@@ -47,10 +47,7 @@ const ProductDetails = ({ products }) => {
             <Link to="/"><Image src={process.env.PUBLIC_URL + "/images/MainLogo.png"} fluid /></Link>
           </Col>
           <Col className="d-flex justify-content-end">
-            <div className="text-center">
-              <i className="fa fa-user fa-2x" aria-hidden="true"></i>
-              <p className="m-0">Người dùng</p>
-            </div>
+            <a href="#" style={{ fontSize: '20px', textDecoration: 'none', color: 'green' }}>Bạn cần giúp đỡ?</a>
           </Col>
         </Row>
       </Container>
@@ -67,14 +64,10 @@ const ProductDetails = ({ products }) => {
             <Image
               src={process.env.PUBLIC_URL + image}
               alt="Product Image"
-              style={{
-                objectFit: 'cover',
-                width: '100%',
-                height: '100%',
-              }}
+              style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '5px', borderWidth: '1px', borderColor: '#000000', borderStyle: 'solid' }}
             />
           </Col>
-          <Col md={6}>
+          <Col md={6} style={{ paddingLeft: '80px' }}>
             <h2>{name}</h2>
             <p style={{ color: 'green', fontSize: '18px', fontWeight: 'bold' }}>Price: {price}</p>
             <p>Quantity: {quantity}</p>

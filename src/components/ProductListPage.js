@@ -55,7 +55,7 @@ const ProductListPage = () => {
 
             <Container className="pt-3 pb-1 px-5 text-white" style={{ backgroundColor: '#3DB149' }} fluid>
                 <div className="text-uppercase fw-bold">
-                    <h1 className="">THÔNG TIN SẢN PHẨM</h1>
+                    <h1 className="">SẢN PHẨM</h1>
                 </div>
             </Container>
 

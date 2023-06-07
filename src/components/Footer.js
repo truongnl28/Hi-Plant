@@ -19,7 +19,7 @@ function Footer() {
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut  aliquam erat </p>
                     </div>
                     <div className='col-sm-1'>
-                        <img src={process.env.PUBLIC_URL + '/assets/images/logo trắng.svg'}></img>
+                        <img src={process.env.PUBLIC_URL + '/images/logo trắng.svg'}></img>
                     </div>
                 </div>
             </div>
